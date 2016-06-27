@@ -3,9 +3,12 @@ import React from 'react';
 import Pixel from 'components/pixel';
 
 class Grid extends React.Component {
+
   selectHandler = (rowIdx, colIdx) => {
-    // What to do with this?
-    console.log(rowIdx, colIdx)
+    var pixels = this.props.pixels;
+    pixels[rowIdx][colIdx] = !pixels[rowIdx][colIdx]
+
+    this.props.onUpdate(pixels)
   }
 
   render() {
@@ -18,6 +21,7 @@ class Grid extends React.Component {
             key={rowIdx*8+colIdx}
             colIdx={colIdx}
             rowIdx={rowIdx}
+            selected={this.props.pixels[rowIdx][colIdx]}
             clickHandler={this.selectHandler}
           />)
       }
