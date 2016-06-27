@@ -17,7 +17,6 @@ class AppComponent extends React.Component {
 
   handleSelectCharacter = (item) => {
     var selected = item.target.attributes.getNamedItem('data-character').value;
-    console.log(selected)
     this.setState({
       selected: selected
     });
