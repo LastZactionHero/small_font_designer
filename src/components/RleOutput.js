@@ -19,11 +19,11 @@ class RleOutput extends React.Component {
 
     return(
       <div>
-        <div>
-          <a className='btn btn-primary' onClick={this.handleCompress}>Compress</a>
-        </div>
         <p>
-          Output Format: 
+          <a className='btn btn-primary' onClick={this.handleCompress}>Compress</a>
+        </p>
+        <p>
+          Output Format:
           <pre>'[character]': '[char width]-[pixel active true(t)/false(f)][run length];repeat...'</pre>
         </p>
         <pre>
