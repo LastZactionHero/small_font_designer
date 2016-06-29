@@ -26,10 +26,21 @@ class AppComponent extends React.Component {
   }
 
   render() {
+    var getStartedAlert = null;
+    var encoder = null;
+    if(!this.state.selected){
+      getStartedAlert = <div className='alert alert-success'>Select a character to get started.</div>
+    } else {
+      encoder = <RleOutput characters={this.state.characters} images={this.state.images} />
+    }
+
     return (
       <div className="index container">
         <h1>Small Font Designer</h1>
-        <p><a href='https://github.com/LastZactionHero/rle_font' target='_blank'>View on Github</a></p>
+        <p>
+          <a href='https://github.com/LastZactionHero/rle_font' target='_blank'>View on Github</a> | @LastZactionHero
+        </p>
+        {getStartedAlert}
         <div className="row">
           <div className="col-md-3">
             <div className="list-group">
@@ -45,14 +56,13 @@ class AppComponent extends React.Component {
               }.bind(this))}
             </div>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-9">
             <Designer character={this.state.selected} images={this.state.images}/>
+            <hr/>
+            {encoder}
           </div>
         </div>
-        <hr/>
-        <div>
-          <RleOutput characters={this.state.characters} images={this.state.images} />
-        </div>
+
       </div>
     );
   }

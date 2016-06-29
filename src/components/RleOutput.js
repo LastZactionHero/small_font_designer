@@ -18,14 +18,15 @@ class RleOutput extends React.Component {
     });
 
     return(
-      <div>
+      <div className='output'>
         <p>
-          <a className='btn btn-primary' onClick={this.handleCompress}>Compress</a>
+          <a className='btn btn-success' onClick={this.handleCompress}>Encode the Font</a>
         </p>
         <p>
-          Output Format:
+          <h4>Output Format</h4>
           <pre>'[character]': '[char width]-[pixel active true(t)/false(f)][run length];repeat...'</pre>
         </p>
+        <h4>Encoded Font</h4>
         <pre>
         {images.map((image) => {
           return '\'' + image.character + '\': \'' + image.compressed + '\',\n'

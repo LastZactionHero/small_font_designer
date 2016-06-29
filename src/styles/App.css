@@ -30,6 +30,11 @@ body {
 
 .designer {
   position: relative;
+  height: 420px;
+}
+
+.rle {
+  position: relative;
 }
 
 .grid {

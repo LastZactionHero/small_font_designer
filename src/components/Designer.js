@@ -10,7 +10,7 @@ class Designer extends React.Component {
 
   render() {
     return (
-      <div class='designer'>
+      <div className='designer'>
         <span className='background-character'>{this.props.character}</span>
         <Grid pixels={this.props.images.getImage(this.props.character)} onUpdate={this.handleUpdate}/>
       </div>
