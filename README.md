@@ -5,9 +5,6 @@ Design a small, variable-width font for use in low memory/resolution application
 ### Designer
 ![Alt text](misc/screenshot_designer.png?raw=true "Title")
 
-### RLE Output
-![Alt text](misc/screenshot_output.png?raw=true "Title")
-
 ## Usage
 ```
 npm install
@@ -17,29 +14,31 @@ npm start
 ## Font Size
 Maximum character size is 8x8. If a character does not use the entire 8-pixel width, it will be truncated to the amount used.
 
-## Run Length Encoding
-The output is compressed with RLE.
+## Byte Packing
 
 ```
-'[character]': '[char width]-[pixel is active: t/f][run length];repeat...'
+'[character]': '[char width]-[bytes]
+
 ```
 
 #### Example:
 ```
-'A': '5-f7;t1;f3;t1;f1;t1;f2;t1;f1;t1;f1;t6;f3;t2;f3;t1;f5;',
+'A': '5-0115bfc620'
 ```
 - Character: A
 - Width: 5. This character only occupies 5 pixels in width
-- Runs: Off for 7 pixels; On for 1 pixel; Off for 3 pixels...
+- Bytes: 0x01     0x15     0xbf     0xc6     0x20
+- Bytes: 00000001 00010101 10111111 11000110 00100000
+
+![Alt text](misc/screenshot_a.png?raw=true "Title")
 
 #### Sample Output:
 ```
-'A': '5-f7;t1;f3;t1;f1;t1;f2;t1;f1;t1;f1;t6;f3;t2;f3;t1;f5;',
-'B': '5-f5;t6;f3;t5;f1;t1;f2;t3;f3;t6;f5;',
-'C': '5-f6;t3;f1;t1;f3;t2;f4;t1;f4;t1;f3;t1;f1;t3;f6;',
-'D': '5-f5;t4;f1;t1;f3;t2;f3;t2;f3;t2;f3;t5;f6;',
-'E': '5-f5;t6;f4;t4;f1;t1;f4;t1;f4;t5;f5;',
-'F': '4-f4;t5;f3;t5;f3;t1;f3;t1;f7;',
-'G': '6-f7;t4;f1;t1;f4;t2;f5;t1;f2;t4;f4;t1;f1;t4;f7;',
-'H': '5-f5;t1;f3;t2;f3;t7;f3;t2;f3;t2;f3;t1;f5;',
+'A': '5-0115bfc620',
+'B': '5-07a5e8c7c0',
+'C': '6-01e860821780',
+'D': '5-07a318c7c0',
+'E': '5-07e1e843e0',
+'F': '4-0f8e8880',
+'G': '6-01c8a09e1780',
 ```

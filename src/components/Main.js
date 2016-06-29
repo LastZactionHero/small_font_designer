@@ -5,7 +5,7 @@ require('../../node_modules/bootstrap/dist/css/bootstrap.min.css')
 import React from 'react';
 import Characters from 'sources/characters';
 import Designer from 'components/designer';
-import RleOutput from 'components/rleoutput';
+import Output from 'components/output';
 import Images from 'sources/images';
 
 class AppComponent extends React.Component {
@@ -31,7 +31,7 @@ class AppComponent extends React.Component {
     if(!this.state.selected){
       getStartedAlert = <div className='alert alert-success'>Select a character to get started.</div>
     } else {
-      encoder = <RleOutput characters={this.state.characters} images={this.state.images} />
+      encoder = <Output characters={this.state.characters} images={this.state.images} />
     }
 
     return (

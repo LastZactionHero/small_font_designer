@@ -1,7 +1,7 @@
 import React from 'react';
-import RleWriter from 'sources/rlewriter';
+import ByteWriter from 'sources/bytewriter';
 
-class RleOutput extends React.Component {
+class Output extends React.Component {
   handleCompress = () => {
     this.forceUpdate();
   }
@@ -10,7 +10,7 @@ class RleOutput extends React.Component {
     var characters = this.props.characters;
     var images = characters.list().map((character) => {
       var image = this.props.images.getImage(character);
-      var writer = new RleWriter(image);
+      var writer = new ByteWriter(image);
       return {
         character: character,
         compressed: writer.compress()
@@ -24,7 +24,7 @@ class RleOutput extends React.Component {
         </p>
         <p>
           <h4>Output Format</h4>
-          <pre>'[character]': '[char width]-[pixel active true(t)/false(f)][run length];repeat...'</pre>
+          <pre>'[character]': '[char width]-[pixel encoded bytes]'</pre>
         </p>
         <h4>Encoded Font</h4>
         <pre>
@@ -37,4 +37,4 @@ class RleOutput extends React.Component {
   }
 }
 
-export default RleOutput;
+export default Output;
