@@ -29,7 +29,7 @@ class AppComponent extends React.Component {
     return (
       <div className="index container">
         <h1>Small Font Designer</h1>
-        <p><a href='https://github.com/LastZactionHero/rle_font' target='_blank'>Available on Github</a></p>
+        <p><a href='https://github.com/LastZactionHero/rle_font' target='_blank'>View on Github</a></p>
         <div className="row">
           <div className="col-md-3">
             <div className="list-group">
