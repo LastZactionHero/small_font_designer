@@ -1,12 +1,18 @@
 # Small Font Designer
 
-Design a small, variable-width font for use in low memory/resolution applications. Fonts are created by selecting pixels overlaying a browser font.
+Design a small, variable-width font for use in low memory/resolution applications (e.g. Arduino). Fonts are created by selecting pixels overlaying a browser font.
 
 ### Designer
 ![Alt text](misc/screenshot_designer.png?raw=true "Title")
 
 ### RLE Output
 ![Alt text](misc/screenshot_output.png?raw=true "Title")
+
+## Usage
+```
+npm install
+npm start
+```
 
 ## Font Size
 Maximum character size is 8x8. If a character does not use the entire 8-pixel width, it will be truncated to the amount used.
