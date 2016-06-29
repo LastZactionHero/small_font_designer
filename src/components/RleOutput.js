@@ -24,7 +24,7 @@ class RleOutput extends React.Component {
         </div>
         <p>
           Output Format: 
-          <pre>'[character]': '[char length]-[pixel active true(t)/false(f)][run length];repeat...'</pre>
+          <pre>'[character]': '[char width]-[pixel active true(t)/false(f)][run length];repeat...'</pre>
         </p>
         <pre>
         {images.map((image) => {
